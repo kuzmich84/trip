@@ -86,268 +86,16 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/main.js":
-/*!*********************!*\
-  !*** ./src/main.js ***!
-  \*********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./src/components/add-card.js":
+/*!************************************!*\
+  !*** ./src/components/add-card.js ***!
+  \************************************/
+/*! exports provided: createAddElement */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-const COUNTCARD = 3;
-
-const createElementRoute = () => {
-  return (
-    `
-        <div class="trip-info__main">
-              <h1 class="trip-info__title">Amsterdam &mdash; ... &mdash; Amsterdam</h1>
-                <p class="trip-info__dates">Mar 18&nbsp;&mdash;&nbsp;21</p>
-            </div>
-    `
-  );
-};
-
-const createElementMenu = () => {
-  return (
-
-    `
-      <nav class="trip-controls__trip-tabs  trip-tabs">
-              <a class="trip-tabs__btn  trip-tabs__btn--active" href="#">Table</a>
-              <a class="trip-tabs__btn" href="#">Stats</a>
-            </nav>
-`);
-};
-
-const createElementFilter = () => {
-  return (
-    `
-      <form class="trip-filters" action="#" method="get">
-              <div class="trip-filters__filter">
-                <input id="filter-everything" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="everything" checked>
-                <label class="trip-filters__filter-label" for="filter-everything">Everything</label>
-              </div>
-
-              <div class="trip-filters__filter">
-                <input id="filter-future" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="future">
-                <label class="trip-filters__filter-label" for="filter-future">Future</label>
-              </div>
-
-              <div class="trip-filters__filter">
-                <input id="filter-past" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="past">
-                <label class="trip-filters__filter-label" for="filter-past">Past</label>
-              </div>
-
-              <button class="visually-hidden" type="submit">Accept filter</button>
-            </form>
-    `
-  );
-};
-
-const createElementFilterTrip = () => {
-  return (`
-  <form class="trip-events__trip-sort  trip-sort" action="#" method="get">
-            <span class="trip-sort__item  trip-sort__item--day">Day</span>
-
-            <div class="trip-sort__item  trip-sort__item--event">
-              <input id="sort-event" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-event" checked>
-              <label class="trip-sort__btn" for="sort-event">Event</label>
-            </div>
-
-            <div class="trip-sort__item  trip-sort__item--time">
-              <input id="sort-time" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-time">
-              <label class="trip-sort__btn" for="sort-time">
-                Time
-                <svg class="trip-sort__direction-icon" width="8" height="10" viewBox="0 0 8 10">
-                  <path d="M2.888 4.852V9.694H5.588V4.852L7.91 5.068L4.238 0.00999987L0.548 5.068L2.888 4.852Z"/>
-                </svg>
-              </label>
-            </div>
-
-            <div class="trip-sort__item  trip-sort__item--price">
-              <input id="sort-price" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-price">
-              <label class="trip-sort__btn" for="sort-price">
-                Price
-                <svg class="trip-sort__direction-icon" width="8" height="10" viewBox="0 0 8 10">
-                  <path d="M2.888 4.852V9.694H5.588V4.852L7.91 5.068L4.238 0.00999987L0.548 5.068L2.888 4.852Z"/>
-                </svg>
-              </label>
-            </div>
-
-            <span class="trip-sort__item  trip-sort__item--offers">Offers</span>
-          </form>
-  `);
-};
-
-const createElementContent = () => {
-  return (
-    `
-      <ul class="trip-days">
-          </ul>
-    `
-  );
-};
-
-const createElementCard = () => {
-  return (`
-          <li class="trip-days__item  day">
-              <div class="day__info">
-                <span class="day__counter">1</span>
-                <time class="day__date" datetime="2019-03-18">MAR 18</time>
-              </div>
-
-              <ul class="trip-events__list">
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/taxi.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Taxi to airport</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T11:00">11:00</time>
-                      </p>
-                      <p class="event__duration">1H 30M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">20</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Order Uber</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">20</span>
-                       </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/flight.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Flight to Geneva</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T12:25">12:25</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T13:35">13:35</time>
-                      </p>
-                      <p class="event__duration">1H 30M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">160</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Add luggage</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">50</span>
-                       </li>
-                       <li class="event__offer">
-                         <span class="event__offer-title">Switch to comfort</span>
-                         &plus;
-                         &euro;&nbsp;<span class="event__offer-price">80</span>
-                        </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/drive.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Drive to Chamonix</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T14:30">14:30</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T16:05">16:05</time>
-                      </p>
-                      <p class="event__duration">1H 10M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">160</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Rent a car</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">200</span>
-                       </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/check-in.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Check into hotel</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T12:25">12:25</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T13:35">13:35</time>
-                      </p>
-                      <p class="event__duration">1H 30M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">600</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Add breakfast</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">50</span>
-                       </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-              </ul>
-            </li>
-  
-  `);
-};
-
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAddElement", function() { return createAddElement; });
 const createAddElement = () => {
   return (
     `
@@ -544,26 +292,383 @@ const createAddElement = () => {
   );
 };
 
+
+/***/ }),
+
+/***/ "./src/components/card.js":
+/*!********************************!*\
+  !*** ./src/components/card.js ***!
+  \********************************/
+/*! exports provided: createElementCard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementCard", function() { return createElementCard; });
+const createElementCard = () => {
+  return (`
+          <li class="trip-days__item  day">
+              <div class="day__info">
+                <span class="day__counter">1</span>
+                <time class="day__date" datetime="2019-03-18">MAR 18</time>
+              </div>
+
+              <ul class="trip-events__list">
+                <li class="trip-events__item">
+                  <div class="event">
+                    <div class="event__type">
+                      <img class="event__type-icon" width="42" height="42" src="img/icons/taxi.png" alt="Event type icon">
+                    </div>
+                    <h3 class="event__title">Taxi to airport</h3>
+
+                    <div class="event__schedule">
+                      <p class="event__time">
+                        <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
+                        &mdash;
+                        <time class="event__end-time" datetime="2019-03-18T11:00">11:00</time>
+                      </p>
+                      <p class="event__duration">1H 30M</p>
+                    </div>
+
+                    <p class="event__price">
+                      &euro;&nbsp;<span class="event__price-value">20</span>
+                    </p>
+
+                    <h4 class="visually-hidden">Offers:</h4>
+                    <ul class="event__selected-offers">
+                      <li class="event__offer">
+                        <span class="event__offer-title">Order Uber</span>
+                        &plus;
+                        &euro;&nbsp;<span class="event__offer-price">20</span>
+                       </li>
+                    </ul>
+
+                    <button class="event__rollup-btn" type="button">
+                      <span class="visually-hidden">Open event</span>
+                    </button>
+                  </div>
+                </li>
+
+                <li class="trip-events__item">
+                  <div class="event">
+                    <div class="event__type">
+                      <img class="event__type-icon" width="42" height="42" src="img/icons/flight.png" alt="Event type icon">
+                    </div>
+                    <h3 class="event__title">Flight to Geneva</h3>
+
+                    <div class="event__schedule">
+                      <p class="event__time">
+                        <time class="event__start-time" datetime="2019-03-18T12:25">12:25</time>
+                        &mdash;
+                        <time class="event__end-time" datetime="2019-03-18T13:35">13:35</time>
+                      </p>
+                      <p class="event__duration">1H 30M</p>
+                    </div>
+
+                    <p class="event__price">
+                      &euro;&nbsp;<span class="event__price-value">160</span>
+                    </p>
+
+                    <h4 class="visually-hidden">Offers:</h4>
+                    <ul class="event__selected-offers">
+                      <li class="event__offer">
+                        <span class="event__offer-title">Add luggage</span>
+                        &plus;
+                        &euro;&nbsp;<span class="event__offer-price">50</span>
+                       </li>
+                       <li class="event__offer">
+                         <span class="event__offer-title">Switch to comfort</span>
+                         &plus;
+                         &euro;&nbsp;<span class="event__offer-price">80</span>
+                        </li>
+                    </ul>
+
+                    <button class="event__rollup-btn" type="button">
+                      <span class="visually-hidden">Open event</span>
+                    </button>
+                  </div>
+                </li>
+
+                <li class="trip-events__item">
+                  <div class="event">
+                    <div class="event__type">
+                      <img class="event__type-icon" width="42" height="42" src="img/icons/drive.png" alt="Event type icon">
+                    </div>
+                    <h3 class="event__title">Drive to Chamonix</h3>
+
+                    <div class="event__schedule">
+                      <p class="event__time">
+                        <time class="event__start-time" datetime="2019-03-18T14:30">14:30</time>
+                        &mdash;
+                        <time class="event__end-time" datetime="2019-03-18T16:05">16:05</time>
+                      </p>
+                      <p class="event__duration">1H 10M</p>
+                    </div>
+
+                    <p class="event__price">
+                      &euro;&nbsp;<span class="event__price-value">160</span>
+                    </p>
+
+                    <h4 class="visually-hidden">Offers:</h4>
+                    <ul class="event__selected-offers">
+                      <li class="event__offer">
+                        <span class="event__offer-title">Rent a car</span>
+                        &plus;
+                        &euro;&nbsp;<span class="event__offer-price">200</span>
+                       </li>
+                    </ul>
+
+                    <button class="event__rollup-btn" type="button">
+                      <span class="visually-hidden">Open event</span>
+                    </button>
+                  </div>
+                </li>
+
+                <li class="trip-events__item">
+                  <div class="event">
+                    <div class="event__type">
+                      <img class="event__type-icon" width="42" height="42" src="img/icons/check-in.png" alt="Event type icon">
+                    </div>
+                    <h3 class="event__title">Check into hotel</h3>
+
+                    <div class="event__schedule">
+                      <p class="event__time">
+                        <time class="event__start-time" datetime="2019-03-18T12:25">12:25</time>
+                        &mdash;
+                        <time class="event__end-time" datetime="2019-03-18T13:35">13:35</time>
+                      </p>
+                      <p class="event__duration">1H 30M</p>
+                    </div>
+
+                    <p class="event__price">
+                      &euro;&nbsp;<span class="event__price-value">600</span>
+                    </p>
+
+                    <h4 class="visually-hidden">Offers:</h4>
+                    <ul class="event__selected-offers">
+                      <li class="event__offer">
+                        <span class="event__offer-title">Add breakfast</span>
+                        &plus;
+                        &euro;&nbsp;<span class="event__offer-price">50</span>
+                       </li>
+                    </ul>
+
+                    <button class="event__rollup-btn" type="button">
+                      <span class="visually-hidden">Open event</span>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+            </li>
+  
+  `);
+};
+
+
+/***/ }),
+
+/***/ "./src/components/filter-trip.js":
+/*!***************************************!*\
+  !*** ./src/components/filter-trip.js ***!
+  \***************************************/
+/*! exports provided: createElementFilterTrip */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementFilterTrip", function() { return createElementFilterTrip; });
+const createElementFilterTrip = () => {
+  return (`
+  <form class="trip-events__trip-sort  trip-sort" action="#" method="get">
+            <span class="trip-sort__item  trip-sort__item--day">Day</span>
+
+            <div class="trip-sort__item  trip-sort__item--event">
+              <input id="sort-event" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-event" checked>
+              <label class="trip-sort__btn" for="sort-event">Event</label>
+            </div>
+
+            <div class="trip-sort__item  trip-sort__item--time">
+              <input id="sort-time" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-time">
+              <label class="trip-sort__btn" for="sort-time">
+                Time
+                <svg class="trip-sort__direction-icon" width="8" height="10" viewBox="0 0 8 10">
+                  <path d="M2.888 4.852V9.694H5.588V4.852L7.91 5.068L4.238 0.00999987L0.548 5.068L2.888 4.852Z"/>
+                </svg>
+              </label>
+            </div>
+
+            <div class="trip-sort__item  trip-sort__item--price">
+              <input id="sort-price" class="trip-sort__input  visually-hidden" type="radio" name="trip-sort" value="sort-price">
+              <label class="trip-sort__btn" for="sort-price">
+                Price
+                <svg class="trip-sort__direction-icon" width="8" height="10" viewBox="0 0 8 10">
+                  <path d="M2.888 4.852V9.694H5.588V4.852L7.91 5.068L4.238 0.00999987L0.548 5.068L2.888 4.852Z"/>
+                </svg>
+              </label>
+            </div>
+
+            <span class="trip-sort__item  trip-sort__item--offers">Offers</span>
+          </form>
+  `);
+};
+
+
+/***/ }),
+
+/***/ "./src/components/filter.js":
+/*!**********************************!*\
+  !*** ./src/components/filter.js ***!
+  \**********************************/
+/*! exports provided: createElementFilter */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementFilter", function() { return createElementFilter; });
+const createElementFilter = () => {
+  return (
+    `
+      <form class="trip-filters" action="#" method="get">
+              <div class="trip-filters__filter">
+                <input id="filter-everything" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="everything" checked>
+                <label class="trip-filters__filter-label" for="filter-everything">Everything</label>
+              </div>
+
+              <div class="trip-filters__filter">
+                <input id="filter-future" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="future">
+                <label class="trip-filters__filter-label" for="filter-future">Future</label>
+              </div>
+
+              <div class="trip-filters__filter">
+                <input id="filter-past" class="trip-filters__filter-input  visually-hidden" type="radio" name="trip-filter" value="past">
+                <label class="trip-filters__filter-label" for="filter-past">Past</label>
+              </div>
+
+              <button class="visually-hidden" type="submit">Accept filter</button>
+            </form>
+    `
+  );
+};
+
+
+/***/ }),
+
+/***/ "./src/components/menu.js":
+/*!********************************!*\
+  !*** ./src/components/menu.js ***!
+  \********************************/
+/*! exports provided: createElementMenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementMenu", function() { return createElementMenu; });
+const createElementMenu = () => {
+  return (
+
+    `
+      <nav class="trip-controls__trip-tabs  trip-tabs">
+              <a class="trip-tabs__btn  trip-tabs__btn--active" href="#">Table</a>
+              <a class="trip-tabs__btn" href="#">Stats</a>
+            </nav>
+`);
+};
+
+
+/***/ }),
+
+/***/ "./src/components/route.js":
+/*!*********************************!*\
+  !*** ./src/components/route.js ***!
+  \*********************************/
+/*! exports provided: createElementRoute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementRoute", function() { return createElementRoute; });
+const createElementRoute = () => {
+  return (
+    `
+        <div class="trip-info__main">
+              <h1 class="trip-info__title">Amsterdam &mdash; ... &mdash; Amsterdam</h1>
+                <p class="trip-info__dates">Mar 18&nbsp;&mdash;&nbsp;21</p>
+            </div>
+    `
+  );
+};
+
+
+/***/ }),
+
+/***/ "./src/components/task-content.js":
+/*!****************************************!*\
+  !*** ./src/components/task-content.js ***!
+  \****************************************/
+/*! exports provided: createElementContent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createElementContent", function() { return createElementContent; });
+const createElementContent = () => {
+  return (
+    `
+      <ul class="trip-days">
+          </ul>
+    `
+  );
+};
+
+
+/***/ }),
+
+/***/ "./src/main.js":
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_route__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/route */ "./src/components/route.js");
+/* harmony import */ var _components_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/menu */ "./src/components/menu.js");
+/* harmony import */ var _components_filter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/filter */ "./src/components/filter.js");
+/* harmony import */ var _components_filter_trip__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/filter-trip */ "./src/components/filter-trip.js");
+/* harmony import */ var _components_task_content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/task-content */ "./src/components/task-content.js");
+/* harmony import */ var _components_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/card */ "./src/components/card.js");
+/* harmony import */ var _components_add_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-card */ "./src/components/add-card.js");
+
+
+
+
+
+
+
+
+
+const COUNTCARD = 3;
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
 const tripInfo = document.querySelector(`.trip-info`);
 const tripControls = document.querySelector(`.trip-controls`);
 
-render(tripInfo, createElementRoute(), `afterbegin`);
-render(tripControls, createElementMenu(), `afterbegin`);
-render(tripControls, createElementFilter(), `beforeend`);
+render(tripInfo, Object(_components_route__WEBPACK_IMPORTED_MODULE_0__["createElementRoute"])(), `afterbegin`);
+render(tripControls, Object(_components_menu__WEBPACK_IMPORTED_MODULE_1__["createElementMenu"])(), `afterbegin`);
+render(tripControls, Object(_components_filter__WEBPACK_IMPORTED_MODULE_2__["createElementFilter"])(), `beforeend`);
 
 const tripEvents = document.querySelector(`.trip-events`);
-render(tripEvents, createElementFilterTrip(), `afterbegin`);
-render(tripEvents, createElementContent(), `beforeend`);
+render(tripEvents, Object(_components_filter_trip__WEBPACK_IMPORTED_MODULE_3__["createElementFilterTrip"])(), `afterbegin`);
+render(tripEvents, Object(_components_task_content__WEBPACK_IMPORTED_MODULE_4__["createElementContent"])(), `beforeend`);
 const contentCard = document.querySelector(`.trip-days`);
 
 
 new Array(COUNTCARD).fill(``).forEach(
-    () => render(contentCard, createElementCard(), `beforeend`));
+    () => render(contentCard, Object(_components_card__WEBPACK_IMPORTED_MODULE_5__["createElementCard"])(), `beforeend`));
 
-render(contentCard, createAddElement(), `afterbegin`);
+render(contentCard, Object(_components_add_card__WEBPACK_IMPORTED_MODULE_6__["createAddElement"])(), `afterbegin`);
 
 
 /***/ })
