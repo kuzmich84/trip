@@ -12,6 +12,8 @@ const eventType = new Map([
   [`Trip`, `./img/icons/sightseeing.png`]]
 );
 
+const CITY = [`Amsterdam`, `Geneva`, `Chamonix`];
+
 const getRandomArrayItem = (array) => {
   const randomIndex = getRandomIntegerNumber(0, array.length);
   return array[randomIndex];
