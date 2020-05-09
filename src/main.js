@@ -250,7 +250,7 @@ const createElementCard = () => {
             </li>
   
   `);
-}
+};
 
 const createAddElement = () => {
   return (
@@ -465,5 +465,6 @@ const contentCard = document.querySelector(`.trip-days`);
 
 
 new Array(COUNTCARD).fill(``).forEach(
-  () => render(contentCard, createElementCard(), `beforeend`)
-  );
+    () => render(contentCard, createElementCard(), `beforeend`));
+
+render(contentCard, createAddElement(), `afterbegin`);
