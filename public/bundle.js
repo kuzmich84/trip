@@ -96,6 +96,10 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createAddElement", function() { return createAddElement; });
+/* harmony import */ var _mock_add_card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../mock/add-card */ "./src/mock/add-card.js");
+
+const description = Object(_mock_add_card__WEBPACK_IMPORTED_MODULE_0__["createDescription"])();
+
 const createAddElement = () => {
   return (
     `
@@ -273,15 +277,15 @@ const createAddElement = () => {
 
                       <section class="event__section  event__section--destination">
                         <h3 class="event__section-title  event__section-title--destination">Destination</h3>
-                        <p class="event__destination-description">Geneva is a city in Switzerland that lies at the southern tip of expansive Lac Léman (Lake Geneva). Surrounded by the Alps and Jura mountains, the city has views of dramatic Mont Blanc.</p>
+                        <p class="event__destination-description">${description}</p>
 
                         <div class="event__photos-container">
                           <div class="event__photos-tape">
-                            <img class="event__photo" src="img/photos/1.jpg" alt="Event photo">
-                            <img class="event__photo" src="img/photos/2.jpg" alt="Event photo">
-                            <img class="event__photo" src="img/photos/3.jpg" alt="Event photo">
-                            <img class="event__photo" src="img/photos/4.jpg" alt="Event photo">
-                            <img class="event__photo" src="img/photos/5.jpg" alt="Event photo">
+                            <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
+                            <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
+                            <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
+                            <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
+                            <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
                           </div>
                         </div>
                       </section>
@@ -312,153 +316,8 @@ const createElementCard = () => {
                 <span class="day__counter">1</span>
                 <time class="day__date" datetime="2019-03-18">MAR 18</time>
               </div>
-
-              <ul class="trip-events__list">
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/taxi.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Taxi to airport</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T11:00">11:00</time>
-                      </p>
-                      <p class="event__duration">1H 30M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">20</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Order Uber</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">20</span>
-                       </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/flight.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Flight to Geneva</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T12:25">12:25</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T13:35">13:35</time>
-                      </p>
-                      <p class="event__duration">1H 30M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">160</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Add luggage</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">50</span>
-                       </li>
-                       <li class="event__offer">
-                         <span class="event__offer-title">Switch to comfort</span>
-                         &plus;
-                         &euro;&nbsp;<span class="event__offer-price">80</span>
-                        </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/drive.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Drive to Chamonix</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T14:30">14:30</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T16:05">16:05</time>
-                      </p>
-                      <p class="event__duration">1H 10M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">160</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Rent a car</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">200</span>
-                       </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-
-                <li class="trip-events__item">
-                  <div class="event">
-                    <div class="event__type">
-                      <img class="event__type-icon" width="42" height="42" src="img/icons/check-in.png" alt="Event type icon">
-                    </div>
-                    <h3 class="event__title">Check into hotel</h3>
-
-                    <div class="event__schedule">
-                      <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T12:25">12:25</time>
-                        &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T13:35">13:35</time>
-                      </p>
-                      <p class="event__duration">1H 30M</p>
-                    </div>
-
-                    <p class="event__price">
-                      &euro;&nbsp;<span class="event__price-value">600</span>
-                    </p>
-
-                    <h4 class="visually-hidden">Offers:</h4>
-                    <ul class="event__selected-offers">
-                      <li class="event__offer">
-                        <span class="event__offer-title">Add breakfast</span>
-                        &plus;
-                        &euro;&nbsp;<span class="event__offer-price">50</span>
-                       </li>
-                    </ul>
-
-                    <button class="event__rollup-btn" type="button">
-                      <span class="visually-hidden">Open event</span>
-                    </button>
-                  </div>
-                </li>
-              </ul>
+              
+              
             </li>
   
   `);
@@ -577,6 +436,90 @@ const createElementMenu = () => {
 
 /***/ }),
 
+/***/ "./src/components/point-route-list.js":
+/*!********************************************!*\
+  !*** ./src/components/point-route-list.js ***!
+  \********************************************/
+/*! exports provided: createPointRouteList */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPointRouteList", function() { return createPointRouteList; });
+const createPointRouteList = () => {
+  return (
+    `
+    <ul class="trip-events__list">
+     
+              </ul>
+    `
+  );
+};
+
+
+/***/ }),
+
+/***/ "./src/components/point-route.js":
+/*!***************************************!*\
+  !*** ./src/components/point-route.js ***!
+  \***************************************/
+/*! exports provided: createPointRoute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createPointRoute", function() { return createPointRoute; });
+const createPointRoute = (point) => {
+  const {eventType, timeFirst, timeSecond, price, offers} = point;
+  const type = eventType[0];
+  const typeImage = eventType[1];
+  const offer = offers.filter((item) => {
+    return item.type === type;
+  });
+
+  return (
+    `
+    <li class="trip-events__item">
+                  <div class="event">
+                    <div class="event__type">
+                      <img class="event__type-icon" width="42" height="42" src="${typeImage}" alt="Event type icon">
+                    </div>
+                    <h3 class="event__title">${type}</h3>
+
+                    <div class="event__schedule">
+                      <p class="event__time">
+                        <time class="event__start-time" datetime="2019-03-18T10:30">${timeFirst}</time>
+                        &mdash;
+                        <time class="event__end-time" datetime="2019-03-18T11:00">${timeSecond}</time>
+                      </p>
+                      <p class="event__duration">1H 30M</p>
+                    </div>
+
+                    <p class="event__price">
+                      &euro;&nbsp;<span class="event__price-value">${price}</span>
+                    </p>
+
+                    <h4 class="visually-hidden">Offers:</h4>
+                    <ul class="event__selected-offers">
+                      <li class="event__offer">
+                        <span class="event__offer-title">${offer.desc}</span>
+                        &plus;
+                        &euro;&nbsp;<span class="event__offer-price">${offer.price}</span>
+                       </li>
+                    </ul>
+
+                    <button class="event__rollup-btn" type="button">
+                      <span class="visually-hidden">Open event</span>
+                    </button>
+                  </div>
+                </li>
+    `
+  );
+};
+
+
+/***/ }),
+
 /***/ "./src/components/route.js":
 /*!*********************************!*\
   !*** ./src/components/route.js ***!
@@ -639,6 +582,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_task_content__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/task-content */ "./src/components/task-content.js");
 /* harmony import */ var _components_card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/card */ "./src/components/card.js");
 /* harmony import */ var _components_add_card__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/add-card */ "./src/components/add-card.js");
+/* harmony import */ var _components_point_route__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/point-route */ "./src/components/point-route.js");
+/* harmony import */ var _components_point_route_list__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/point-route-list */ "./src/components/point-route-list.js");
+/* harmony import */ var _mock_point_route__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./mock/point-route */ "./src/mock/point-route.js");
+
+
+
 
 
 
@@ -649,6 +598,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const COUNTCARD = 3;
+const COUNTPOINTROUTE = 5;
 const render = (container, template, place) => {
   container.insertAdjacentHTML(place, template);
 };
@@ -669,6 +619,172 @@ new Array(COUNTCARD).fill(``).forEach(
     () => render(contentCard, Object(_components_card__WEBPACK_IMPORTED_MODULE_5__["createElementCard"])(), `beforeend`));
 
 render(contentCard, Object(_components_add_card__WEBPACK_IMPORTED_MODULE_6__["createAddElement"])(), `afterbegin`);
+const tripCard = document.querySelectorAll(`.trip-days__item`);
+
+
+tripCard.forEach((element) => render(element, Object(_components_point_route_list__WEBPACK_IMPORTED_MODULE_8__["createPointRouteList"])(), `beforeend`));
+const tripEventList = document.querySelectorAll(`.trip-events__list`);
+
+
+new Array(COUNTPOINTROUTE).fill(``).forEach(
+    ()=> tripEventList.forEach((element) => render(element, Object(_components_point_route__WEBPACK_IMPORTED_MODULE_7__["createPointRoute"])(_mock_point_route__WEBPACK_IMPORTED_MODULE_9__["generatePoints"]), `beforeend`))
+);
+
+
+/***/ }),
+
+/***/ "./src/mock/add-card.js":
+/*!******************************!*\
+  !*** ./src/mock/add-card.js ***!
+  \******************************/
+/*! exports provided: createDescription */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createDescription", function() { return createDescription; });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
+
+
+const description = [
+  `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+  `Cras aliquet varius magna, non porta ligula feugiat eget.`,
+  `Fusce tristique felis at fermentum pharetra.`,
+  `Aliquam id orci ut lectus varius viverra.`,
+  `Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante.`,
+  `Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum`,
+  `Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui.`,
+  `Sed sed nisi sed augue convallis suscipit in sed felis.`,
+  `Aliquam erat volutpat.`,
+  `Nunc fermentum tortor ac porta dapibus.`,
+  `In rutrum ac purus sit amet tempus.`
+];
+
+
+
+const createDescription = () => {
+  let string = ``;
+  for (let i = 0; i < 3; i++) {
+    string += Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getRandomArrayItem"])(description) + ` `;
+  }
+  return string;
+};
+
+
+
+/***/ }),
+
+/***/ "./src/mock/point-route.js":
+/*!*********************************!*\
+  !*** ./src/mock/point-route.js ***!
+  \*********************************/
+/*! exports provided: generatePoint, generatePoints */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generatePoint", function() { return generatePoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "generatePoints", function() { return generatePoints; });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils */ "./src/utils.js");
+
+
+const eventType = [
+  [`Taxi`, `./img/icons/taxi.png`],
+  [`Flight`, `./img/icons/flight.png`],
+  [`Drive`, `./img/icons/drive.png`],
+  [`Ship`, `./img/icons/ship.png`],
+  [`Bus`, `./img/icons/bus.png`],
+  [`Check`, `./img/icons/check-in.png`],
+  [`Restaurant`, `./img/icons/restaurant.png`],
+  [`Sightseeing`, `./img/icons/sightseeing.png`],
+  [`Train`, `./img/icons/train.png`],
+  [`Transport`, `./img/icons/transport.png`],
+  [`Trip`, `./img/icons/sightseeing.png`]
+];
+
+const CITY = [`Amsterdam`, `Geneva`, `Chamonix`];
+const PRICE = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+let date = new Date(2019, 3, 18, 10, 30);
+const OFFERS = [
+  {
+    type: `Taxi`,
+    desc: `Order Uber`,
+    price: 20
+  },
+  {
+    type: `Flight`,
+    desc: `Add luggage`,
+    price: 50
+  },
+  {
+    type: `Flight`,
+    desc: `Switch to comfort`,
+    price: 80
+  },
+  {
+    type: `Car`,
+    desc: `Rent a car`,
+    price: 80
+  },
+  {
+    type: `Hotel`,
+    desc: `Add breakfast`,
+    price: 50
+  },
+  {
+    type: `Sightseeing`,
+    desc: `Book tickets`,
+    price: 40
+  },
+  {
+    type: `Sightseeing`,
+    desc: `Lunch in city`,
+    price: 30
+  },
+];
+
+const generatePoint = () => {
+  return {
+    type: Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getRandomArrayItem"])(eventType),
+    timeFirst: `${date.getHours()}:${date.getMinutes()}`,
+    timeSecond: `${date.getHours()}:${date.getMinutes() + 30}`,
+    price: Object(_utils__WEBPACK_IMPORTED_MODULE_0__["getRandomArrayItem"])(PRICE),
+    offers: OFFERS
+  };
+};
+
+const generatePoints = (count) => {
+  return new Array(count)
+    .fill(``)
+    .map(generatePoint);
+};
+
+
+
+
+
+/***/ }),
+
+/***/ "./src/utils.js":
+/*!**********************!*\
+  !*** ./src/utils.js ***!
+  \**********************/
+/*! exports provided: getRandomArrayItem */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getRandomArrayItem", function() { return getRandomArrayItem; });
+const getRandomIntegerNumber = (min, max) => {
+  return min + Math.floor(max * Math.random());
+};
+
+const getRandomArrayItem = (array) => {
+  const randomIndex = getRandomIntegerNumber(0, array.length);
+  return array[randomIndex];
+};
+
+
 
 
 /***/ })
