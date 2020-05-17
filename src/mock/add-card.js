@@ -14,8 +14,8 @@ const description = [
   `In rutrum ac purus sit amet tempus.`
 ];
 
-
-
+export const types = [`taxi`, `bus`, `train`, `ship`, `transport`, `drive`, `flight`];
+export const typesActivities = [`check-in`, `sightseeing`, `restaurant`];
 export const createDescription = () => {
   let string = ``;
   for (let i = 0; i < 3; i++) {

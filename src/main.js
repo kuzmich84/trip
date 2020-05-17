@@ -1,48 +1,52 @@
-import {createElementRoute} from "./components/route";
-import {createElementMenu} from "./components/menu";
-import {createElementFilter} from "./components/filter";
-import {createElementFilterTrip} from "./components/filter-trip";
-import {createElementContent} from "./components/task-content";
-import {createElementCard} from "./components/card";
-import {createAddElement} from "./components/add-card";
-import {generatePoint} from "./mock/point-route";
+import SiteMenuComponent from "./components/menu.js";
+import SiteFilterComponent from "./components/filter.js";
+import RouteComponent from "./components/route.js";
+import FilterTripComponent from "./components/filter-trip";
+import PointRouteComponent from "./components/point-route";
+import TaskContentComponent from "./components/task-content";
+import CardComponent from "./components/card";
+import AddEventComponent from "./components/add-card";
+import PointRouteListConponent from "./components/point-route-list";
 import {generatePoints} from "./mock/point-route";
-import {createPointRoute} from "./components/point-route";
-import {createPointRouteList} from "./components/point-route-list";
-
+import {filterNames} from "./mock/filter";
+import {filterTripNames} from "./mock/filter";
+import {render, RenderPosition} from './utils.js';
 
 
 const COUNTCARD = 3;
 const COUNTPOINTROUTE = 5;
 const points = generatePoints(COUNTPOINTROUTE);
-const render = (container, template, place) => {
-  container.insertAdjacentHTML(place, template);
-};
+
 const tripInfo = document.querySelector(`.trip-info`);
 const tripControls = document.querySelector(`.trip-controls`);
 
-render(tripInfo, createElementRoute(), `afterbegin`);
-render(tripControls, createElementMenu(), `afterbegin`);
-render(tripControls, createElementFilter(), `beforeend`);
+render(tripControls, new SiteMenuComponent().getElement(), RenderPosition.AFTERBEGIN);
+
+
+render(tripControls, new SiteFilterComponent(filterNames).getElement(), RenderPosition.BEFOREEND);
 
 const tripEvents = document.querySelector(`.trip-events`);
-render(tripEvents, createElementFilterTrip(), `afterbegin`);
-render(tripEvents, createElementContent(), `beforeend`);
+render(tripEvents, new FilterTripComponent(filterTripNames).getElement(), RenderPosition.AFTERBEGIN);
+
+
+render(tripEvents, new TaskContentComponent().getElement(), RenderPosition.BEFOREEND);
 const contentCard = document.querySelector(`.trip-days`);
 
-
 new Array(COUNTCARD).fill(``).forEach(
-  (item, index) => render(contentCard, createElementCard(index + 1), `beforeend`));
+    (item, index) => render(contentCard, new CardComponent(index + 1).getElement(), `beforeend`));
 
-render(contentCard, createAddElement(), `afterbegin`);
+const tripSort = document.querySelector(`.trip-events__trip-sort`);
+render(tripSort, new AddEventComponent().getElement(), RenderPosition.BEFOREEND);
+
 const tripCard = document.querySelectorAll(`.trip-days__item`);
-
-
-tripCard.forEach((element) => render(element, createPointRouteList(), `beforeend`));
+tripCard.forEach((element) => render(element, new PointRouteListConponent().getElement(), `beforeend`));
 const tripEventList = document.querySelectorAll(`.trip-events__list`);
 
+points.forEach((task) => tripEventList.forEach((element) => render(element, new PointRouteComponent(task).getElement(), `beforeend`)));
 
-points.forEach(
-    (task) =>render(tripEventList[0], createPointRoute(task), `beforeend`));
+let totalPrice = points.reduce((acc, item) => acc + item.price, 0);
+const total = document.querySelector(`.trip-info__cost-value`);
+total.textContent = totalPrice;
 
-
+const dayCounter = document.querySelectorAll(`.day__counter`);
+render(tripInfo, new RouteComponent(dayCounter, points).getElement(), RenderPosition.AFTERBEGIN);

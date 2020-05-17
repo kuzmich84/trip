@@ -1,4 +1,6 @@
-export const createPointRoute = (point) => {
+import {createElement} from "../utils";
+
+const createPointRoute = (point) => {
   const {eventType, timeFirst, timeSecond, price, offers, city} = point;
   const type = eventType[0];
   const typeDesc = eventType[2];
@@ -31,8 +33,7 @@ export const createPointRoute = (point) => {
   }
 
   return (
-    `
-    <li class="trip-events__item">
+    `<li class="trip-events__item">
                   <div class="event">
                     <div class="event__type">
                       <img class="event__type-icon" width="42" height="42" src="${typeImage}" alt="Event type icon">
@@ -61,7 +62,28 @@ export const createPointRoute = (point) => {
                       <span class="visually-hidden">Open event</span>
                     </button>
                   </div>
-                </li>
-    `
+                </li>`
   );
 };
+
+export default class PointRoute {
+  constructor(point) {
+    this._element = null;
+    this._point = point;
+  }
+
+  getTemplate() {
+    return createPointRoute(this._point);
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+    return this._element;
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}
