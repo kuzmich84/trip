@@ -33,13 +33,13 @@ render(tripEvents, new TaskContentComponent().getElement(), RenderPosition.BEFOR
 const contentCard = document.querySelector(`.trip-days`);
 
 new Array(COUNTCARD).fill(``).forEach(
-    (item, index) => render(contentCard, new CardComponent(index + 1).getElement(), `beforeend`));
+    (item, index) => render(contentCard, new CardComponent(index + 1).getElement(), RenderPosition.BEFOREEND));
 
 const tripSort = document.querySelector(`.trip-events__trip-sort`);
-render(tripSort, new AddEventComponent().getElement(), RenderPosition.BEFOREEND);
+render(contentCard, new AddEventComponent().getElement(), RenderPosition.AFTERBEGIN);
 
 const tripCard = document.querySelectorAll(`.trip-days__item`);
-tripCard.forEach((element) => render(element, new PointRouteListConponent().getElement(), `beforeend`));
+tripCard.forEach((element) => render(element, new PointRouteListConponent().getElement(), RenderPosition.BEFOREEND));
 const tripEventList = document.querySelectorAll(`.trip-events__list`);
 
 points.forEach((task) => tripEventList.forEach((element) => render(element, new PointRouteComponent(task).getElement(), `beforeend`)));
