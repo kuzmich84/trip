@@ -42,9 +42,9 @@ const createPointRoute = (point) => {
 
                     <div class="event__schedule">
                       <p class="event__time">
-                        <time class="event__start-time" datetime="2019-03-18T10:30">${formatTime(dateFirst)}</time>
+                        <time class="event__start-time" datetime="${dateFirst}">${formatTime(dateFirst)}</time>
                         &mdash;
-                        <time class="event__end-time" datetime="2019-03-18T11:00">${formatTime(dateEnd)}</time>
+                        <time class="event__end-time" datetime="${dateEnd}">${formatTime(dateEnd)}</time>
                       </p>
                       <p class="event__duration">1H 30M</p>
                     </div>
