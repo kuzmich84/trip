@@ -6,7 +6,7 @@ const createPointRoute = (point) => {
   const typeDesc = eventType[2];
   const typeImage = eventType[1];
   const offer = offers.filter((item) => {
-    return item.type === type;
+    return item.type === type[0].toLowerCase() + type.slice(1);
   });
 
   let str = ``;
@@ -14,7 +14,7 @@ const createPointRoute = (point) => {
   for (let i = 0; i < offer.length; i++) {
     if (offer[i].desc !== `` || offer[i].price !== ``) {
       str += `<li class="event__offer">
-                        <span class="event__offer-title">${offer[i].desc}</span>
+                          <span class="event__offer-title">${offer[i].desc}</span>
                         &plus;
                         &euro;&nbsp;<span class="event__offer-price">${offer[i].price}</span>
                        </li>

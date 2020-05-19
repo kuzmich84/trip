@@ -1,24 +1,26 @@
 import {createElement} from "../utils";
 import {createDescription, types, typesActivities} from "../mock/add-card";
 
-const description = createDescription();
+export const description = createDescription();
 
-const createEventType = (nameType) => {
+export const createEventType = (nameType) => {
   return (
     `<div class="event__type-item">
   <input id="event-type-${nameType}-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="${nameType}">
-  <label class="event__type-label  event__type-label--${nameType}" for="event-type-taxi-1">
+  <label class="event__type-label  event__type-label--${nameType}" for="event-type-${nameType}-1">
 ${nameType[0].toUpperCase() + nameType.slice(1)}</label>
   </div>`
   );
 };
 
-const createAddElement = () => {
-  const eventTypeMarkup = types.map((it, i) => createEventType(it, i === 0)).join(`\n`);
-  const eventTypeActivityMarkup = typesActivities.map((it, i) => createEventType(it, i === 0)).join(`\n`);
+const eventTypeMarkup = types.map((it, i) => createEventType(it, i === 0)).join(`\n`);
+const eventTypeActivityMarkup = typesActivities.map((it, i) => createEventType(it, i === 0)).join(`\n`);
+export {eventTypeMarkup, eventTypeActivityMarkup};
 
-  return (
-    `<form class="trip-events__item  event  event--edit" action="#" method="post">
+export const createAddElement = () => {
+
+    return (
+      `<form class="trip-events__item  event  event--edit" action="#" method="post">
   <header class="event__header">
   <div class="event__type-wrapper">
   <label class="event__type  event__type-btn" for="event-type-toggle-1">
@@ -144,8 +146,8 @@ const createAddElement = () => {
   </section>
   </section>
   </form>`
-  );
-}
+    );
+  }
 
 ;
 

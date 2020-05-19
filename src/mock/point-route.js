@@ -19,78 +19,58 @@ const PRICE = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150,
 let date = new Date(2019, 3, 18, 10, 30);
 const OFFERS = [
   {
-    type: `Taxi`,
+    type: `taxi`,
     desc: `Order Uber`,
     price: 20
   },
   {
-    type: `Flight`,
+    type: `flight`,
     desc: `Add luggage`,
     price: 50
   },
   {
-    type: `Flight`,
+    type: `flight`,
     desc: `Switch to comfort class`,
     price: 150
   },
   {
-    type: `Drive`,
+    type: `drive`,
     desc: `Rent a car`,
     price: 80
   },
   {
-    type: `Ship`,
-    desc: ``,
-    price: ``
-  },
-  {
-    type: `Bus`,
-    desc: ``,
-    price: ``
-  },
-  {
-    type: `Check`,
-    desc: ``,
-    price: ``
-  },
-  {
-    type: `Train`,
-    desc: `Choose seats`,
+    type: `train`,
+    desc: `Travel by train`,
     price: 9
   },
   {
-    type: `Transport`,
-    desc: ``,
-    price: ``
-  },
-  {
-    type: `Trip`,
-    desc: ``,
-    price: ``
-  },
-  {
-    type: `Restaurant`,
-    desc: ``,
-    price: ``
-  },
-  {
-    type: `Hotel`,
+    type: `hotel`,
     desc: `Add breakfast`,
     price: 50
   },
   {
-    type: `Hotel`,
+    type: `meal`,
     desc: `Add meal`,
     price: 2
   },
   {
-    type: `Sightseeing`,
+    type: `sightseeing`,
     desc: `Book tickets`,
     price: 40
   },
   {
-    type: `Sightseeing`,
+    type: `sightseeing`,
     desc: `Lunch in city`,
+    price: 30
+  },
+  {
+    type: `seats`,
+    desc: `Lunch in city`,
+    price: 30
+  },
+  {
+    type: `comfort`,
+    desc: `Switch to comfort class`,
     price: 30
   },
 ];

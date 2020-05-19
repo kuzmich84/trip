@@ -16,7 +16,7 @@ const createElementRoute = (dayCounter, city) => {
 
   let gorod = city.map((item) => item.city);
 
-  if (gorod.length > 2) {
+  if (gorod.length > 3) {
     gorod = `${gorod[0]} &mdash; ... &mdash; ${gorod[gorod.length - 1]}`;
   } else {
     gorod = `${gorod[0]} &mdash; ${gorod[1]}`;

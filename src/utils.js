@@ -9,7 +9,9 @@ export const getRandomArrayItem = (array) => {
 
 export const RenderPosition = {
   AFTERBEGIN: `afterbegin`,
-  BEFOREEND: `beforeend`
+  BEFOREEND: `beforeend`,
+  BEFORE: `before`,
+  AFTER: `after`
 };
 
 export const createElement = (template) => {
@@ -26,6 +28,12 @@ export const render = (container, element, place) => {
       break;
     case RenderPosition.BEFOREEND:
       container.append(element);
+      break;
+    case RenderPosition.BEFORE:
+      container.before(element);
+      break;
+    case RenderPosition.AFTER:
+      container.after(element);
       break;
   }
 };

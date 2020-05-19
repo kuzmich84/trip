@@ -11,7 +11,7 @@ const createFilterMarkup = (name, isChecked) => {
                 name="trip-filter" 
                 value="${name}" 
                 ${isChecked ? `checked` : ``}>
-                <label class="trip-filters__filter-label" for="filter-everything">${name}</label>
+                <label class="trip-filters__filter-label" for="filter-${name}">${name}</label>
               </div>
       `
   );

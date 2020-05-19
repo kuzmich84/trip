@@ -6,7 +6,8 @@ import PointRouteComponent from "./components/point-route";
 import TaskContentComponent from "./components/task-content";
 import CardComponent from "./components/card";
 import AddEventComponent from "./components/add-card";
-import PointRouteListConponent from "./components/point-route-list";
+import PointRouteListComponent from "./components/point-route-list";
+import RouteEditComponent from "./components/route-edit";
 import {generatePoints} from "./mock/point-route";
 import {filterNames} from "./mock/filter";
 import {filterTripNames} from "./mock/filter";
@@ -35,15 +36,16 @@ const contentCard = document.querySelector(`.trip-days`);
 new Array(COUNTCARD).fill(``).forEach(
     (item, index) => render(contentCard, new CardComponent(index + 1).getElement(), RenderPosition.BEFOREEND));
 
-const tripSort = document.querySelector(`.trip-events__trip-sort`);
-render(contentCard, new AddEventComponent().getElement(), RenderPosition.AFTERBEGIN);
+
+
+// render(contentCard, new AddEventComponent().getElement(), RenderPosition.BEFORE);
 
 const tripCard = document.querySelectorAll(`.trip-days__item`);
-tripCard.forEach((element) => render(element, new PointRouteListConponent().getElement(), RenderPosition.BEFOREEND));
+tripCard.forEach((element) => render(element, new PointRouteListComponent().getElement(), RenderPosition.BEFOREEND));
 const tripEventList = document.querySelectorAll(`.trip-events__list`);
 
-points.forEach((task) => tripEventList.forEach((element) => render(element, new PointRouteComponent(task).getElement(), `beforeend`)));
-
+points.slice(1).forEach((point) => tripEventList.forEach((element) => render(element, new PointRouteComponent(point).getElement(), `beforeend`)));
+render(tripEventList[0].querySelectorAll(`.trip-events__item`)[1], new RouteEditComponent(points[0]).getElement(), RenderPosition.AFTERBEGIN);
 let totalPrice = points.reduce((acc, item) => acc + item.price, 0);
 const total = document.querySelector(`.trip-info__cost-value`);
 total.textContent = totalPrice;
