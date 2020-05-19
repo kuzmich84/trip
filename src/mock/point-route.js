@@ -1,4 +1,4 @@
-import {getRandomArrayItem} from "../utils";
+import {getRandomArrayItem, getRandomInRange} from "../utils";
 
 const eventType = [
   [`Taxi`, `./img/icons/taxi.png`, `Taxi to airport`],
@@ -16,7 +16,6 @@ const eventType = [
 
 const CITY = [`Amsterdam`, `Geneva`, `Chamonix`];
 const PRICE = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
-let date = new Date(2019, 3, 18, 10, 30);
 const OFFERS = [
   {
     type: `taxi`,
@@ -75,11 +74,19 @@ const OFFERS = [
   },
 ];
 
+const getRandomEventTime = () => {
+  const date = new Date();
+  date.setFullYear(getRandomInRange(2019, 2021), getRandomInRange(0, 11), getRandomInRange(1, 31));
+  date.setHours(getRandomInRange(0, 23), getRandomInRange(0, 59));
+
+  return date;
+};
+
 const generatePoint = () => {
   return {
     eventType: getRandomArrayItem(eventType),
-    timeFirst: `${date.getHours()}:${date.getMinutes()}`,
-    timeSecond: `${date.getHours()}:${date.getMinutes() + 15}`,
+    dateFirst: getRandomEventTime(),
+    dateEnd: getRandomEventTime(),
     price: getRandomArrayItem(PRICE),
     offers: OFFERS,
     city: getRandomArrayItem(CITY)

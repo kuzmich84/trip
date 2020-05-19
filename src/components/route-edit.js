@@ -1,11 +1,9 @@
 import {createElement} from "../utils";
+import {getRandomIntegerNumber, formatDate} from "../utils";
 import {description, createEventType, createAddElement, eventTypeActivityMarkup, eventTypeMarkup} from "./add-card";
 
 const createRouteEditTemplate = (point) => {
-  const {eventType, timeFirst, timeSecond, price, offers, city} = point;
-  const type = eventType[0];
-  const typeDesc = eventType[2];
-  const typeImage = eventType[1];
+  const {eventType, dateFirst, dateEnd, price, offers, city} = point;
 
 
   const createOffer = (offer) => {
@@ -19,11 +17,11 @@ const createRouteEditTemplate = (point) => {
                           </div>`;
   };
 
-  const offerMarkup = offers.map((it) => createOffer(it)).join(`\n`);
+  const offerMarkup = offers.slice(0, getRandomIntegerNumber(1, offers.length)).map((it) => createOffer(it)).join(`\n`);
 
 
-    return (
-      `<form class="event  event--edit" action="#" method="post">
+  return (
+    `<form class="event  event--edit" action="#" method="post">
                     <header class="event__header">
                       <div class="event__type-wrapper">
                         <label class="event__type  event__type-btn" for="event-type-toggle-1">
@@ -60,12 +58,12 @@ const createRouteEditTemplate = (point) => {
                         <label class="visually-hidden" for="event-start-time-1">
                           From
                         </label>
-                        <input class="event__input  event__input--time" id="event-start-time-1" type="text" name="event-start-time" value="18/03/19 12:25">
+                        <input class="event__input  event__input--time" id="event-start-time-1" type="text" name="event-start-time" value="${formatDate(dateFirst)}">
                         &mdash;
                         <label class="visually-hidden" for="event-end-time-1">
                           To
                         </label>
-                        <input class="event__input  event__input--time" id="event-end-time-1" type="text" name="event-end-time" value="18/03/19 13:35">
+                        <input class="event__input  event__input--time" id="event-end-time-1" type="text" name="event-end-time" value="${formatDate(dateEnd)}">
                       </div>
 
                       <div class="event__field-group  event__field-group--price">
