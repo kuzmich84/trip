@@ -1,4 +1,4 @@
-import {createElement} from "../utils";
+import AbstractComponent from "./abstract-components";
 
 const createElementRoute = (dayCounter, city) => {
 
@@ -30,26 +30,15 @@ const createElementRoute = (dayCounter, city) => {
   );
 };
 
-export default class Route {
+export default class Route extends AbstractComponent{
   constructor(dayCounter, city) {
-    this._element = null;
+    super();
     this._dayCounter = dayCounter;
     this._city = city;
   }
 
   getTemplate() {
     return createElementRoute(this._dayCounter, this._city);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }
 

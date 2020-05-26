@@ -1,4 +1,4 @@
-import {createElement} from "../utils";
+import AbstractComponent from "./abstract-components";
 
 export const createPointRouteList = () => {
   return (
@@ -7,24 +7,12 @@ export const createPointRouteList = () => {
   );
 };
 
-export default class PointRouteList {
+export default class PointRouteList extends AbstractComponent{
   constructor() {
-    this._element = null;
+    super();
   }
 
   getTemplate() {
     return createPointRouteList();
   }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
-
 }

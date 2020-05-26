@@ -1,7 +1,6 @@
-import {createElement} from "../utils";
 import {getRandomIntegerNumber, formatDate} from "../utils";
 import {description, createEventType, createAddElement, eventTypeActivityMarkup, eventTypeMarkup} from "./add-card";
-
+import AbstractComponent from "./abstract-components";
 const createRouteEditTemplate = (point) => {
   const {eventType, dateFirst, dateEnd, price, offers, city} = point;
 
@@ -118,24 +117,13 @@ const createRouteEditTemplate = (point) => {
   );
 };
 
-export default class EditRoute {
+export default class EditRoute extends AbstractComponent {
   constructor(point) {
-    this._element = null;
+    super();
     this._point = point;
   }
 
   getTemplate() {
     return createRouteEditTemplate(this._point);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

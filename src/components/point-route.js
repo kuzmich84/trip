@@ -1,4 +1,5 @@
-import {createElement, formatTime} from "../utils";
+import {formatTime} from "../utils";
+import AbstractComponent from "./abstract-components";
 
 const createPointRoute = (point) => {
   const {eventType, dateFirst, dateEnd, price, offers, city} = point;
@@ -66,24 +67,13 @@ const createPointRoute = (point) => {
   );
 };
 
-export default class PointRoute {
+export default class PointRoute extends AbstractComponent{
   constructor(point) {
-    this._element = null;
+    super();
     this._point = point;
   }
 
   getTemplate() {
     return createPointRoute(this._point);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

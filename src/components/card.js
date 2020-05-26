@@ -1,4 +1,4 @@
-import {createElement} from "../utils";
+import AbstractComponent from "./abstract-components";
 
 const createElementCard = (index) => {
   return (`<li class="trip-days__item  day">
@@ -9,24 +9,12 @@ const createElementCard = (index) => {
               </li>`);
 };
 
-export default class SiteMenu {
+export default class SiteMenu extends AbstractComponent {
   constructor(index) {
-    this._element = null;
+    super();
     this._index = index;
   }
-
   getTemplate() {
     return createElementCard(this._index);
-  }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

@@ -1,5 +1,5 @@
-import {createElement} from "../utils";
 import {createDescription, types, typesActivities} from "../mock/add-card";
+import AbstractComponent from "./abstract-components";
 
 export const description = createDescription();
 
@@ -18,8 +18,7 @@ const eventTypeActivityMarkup = typesActivities.map((it, i) => createEventType(i
 export {eventTypeMarkup, eventTypeActivityMarkup};
 
 export const createAddElement = () => {
-
-    return (
+   return (
       `<form class="trip-events__item  event  event--edit" action="#" method="post">
   <header class="event__header">
   <div class="event__type-wrapper">
@@ -148,28 +147,15 @@ export const createAddElement = () => {
   </form>`
     );
   }
-
 ;
 
-export default class AddCard {
+export default class AddCard extends AbstractComponent {
   constructor() {
-    this._element = null;
+    super();
   }
 
   getTemplate() {
     return createAddElement();
   }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
-  removeElement() {
-    this._element = null;
-  }
-
 }
 
