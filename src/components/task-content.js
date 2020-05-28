@@ -1,4 +1,3 @@
-import {createElement} from "../utils";
 import AbstractComponent from "./abstract-components";
 
 export const createElementContent = () => {

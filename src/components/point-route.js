@@ -67,7 +67,7 @@ const createPointRoute = (point) => {
   );
 };
 
-export default class PointRoute extends AbstractComponent{
+export default class PointRoute extends AbstractComponent {
   constructor(point) {
     super();
     this._point = point;
