@@ -1,6 +1,7 @@
-import {getRandomIntegerNumber, formatDate} from "../utils";
+import {getRandomIntegerNumber, formatDate} from "../utils/common";
 import {description, eventTypeActivityMarkup, eventTypeMarkup} from "./add-card";
 import AbstractComponent from "./abstract-components";
+
 const createRouteEditTemplate = (point) => {
   const {eventType, dateFirst, dateEnd, price, offers, city} = point;
   const typeImage = eventType[1];
@@ -127,5 +128,17 @@ export default class EditRoute extends AbstractComponent {
 
   getTemplate() {
     return createRouteEditTemplate(this._point);
+  }
+
+  setSubmitHandler(handler) {
+    this.getElement().addEventListener(`submit`, handler);
+  }
+
+  setCloseButtonClickHandler(handler) {
+    this.getElement().querySelector(`.event__rollup-btn`).addEventListener(`click`, handler);
+  }
+
+  setRemoveButtonClickHandler(handler) {
+    this.getElement().querySelector(`.event__reset-btn`).addEventListener(`click`, handler);
   }
 }

@@ -9,7 +9,7 @@ import RouteEditComponent from "./components/route-edit";
 import {generatePoints} from "./mock/point-route";
 import {filterNames} from "./mock/filter";
 import {filterTripNames} from "./mock/filter";
-import {render, RenderPosition} from './utils.js';
+import {render, RenderPosition, remove} from "./utils/render";
 import {NoRoutesComponent} from './components/no-routes.js';
 
 
@@ -39,8 +39,9 @@ const renderRoute = (point, currentDay) => {
     document.addEventListener(`keydown`, onEscKeyDown);
   });
 
-  const editForm = routeEditComponent.getElement();
-  editForm.addEventListener(`submit`, replaceEditToRoute);
+  routeEditComponent.setSubmitHandler(replaceEditToRoute);
+  routeEditComponent.setCloseButtonClickHandler(replaceEditToRoute);
+
 
   render(eventsList, routePointComponent.getElement(), RenderPosition.BEFOREEND);
 };

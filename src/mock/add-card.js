@@ -1,4 +1,4 @@
-import {getRandomArrayItem} from "../utils";
+import {getRandomArrayItem} from "../utils/common";
 
 const description = [
   `Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,

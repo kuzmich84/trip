@@ -1,4 +1,4 @@
-import {getRandomArrayItem, getRandomInRange} from "../utils";
+import {getRandomArrayItem, getRandomInRange} from "../utils/common";
 
 const eventType = [
   [`Taxi`, `./img/icons/taxi.png`, `Taxi to airport`],
