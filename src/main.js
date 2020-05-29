@@ -10,6 +10,7 @@ import {generatePoints} from "./mock/point-route";
 import {filterNames} from "./mock/filter";
 import {filterTripNames} from "./mock/filter";
 import {render, RenderPosition} from './utils.js';
+import {NoRoutesComponent} from './components/no-routes.js';
 
 
 const COUNTCARD = 3;
@@ -64,13 +65,13 @@ render(tripEvents, new TaskContentComponent().getElement(), RenderPosition.BEFOR
 const contentCard = document.querySelector(`.trip-days`);
 
 new Array(COUNTCARD).fill(``).forEach(
-    (item, index) => {
-      const day = new CardComponent(index + 1).getElement();
-      points.forEach((point) => {
-        renderRoute(point, day);
-      });
-      render(contentCard, day, RenderPosition.BEFOREEND);
+  (item, index) => {
+    const day = new CardComponent(index + 1).getElement();
+    points.forEach((point) => {
+      renderRoute(point, day);
     });
+    render(contentCard, day, RenderPosition.BEFOREEND);
+  });
 
 let totalPrice = points.reduce((acc, item) => acc + item.price, 0);
 const total = document.querySelector(`.trip-info__cost-value`);
