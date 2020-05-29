@@ -4,7 +4,7 @@ const createFilterTripMarkup = (nameFilter, isChecked) => {
 
 
   return (
-    `<div class="trip-sort__item  trip-sort__item--${nameFilter}">
+    `<div class="trip-sort__item  trip-sort__item--${nameFilter}" data-sort-type="${nameFilter}">
               <input id="sort-${nameFilter}" 
               class="trip-sort__input  visually-hidden" 
               type="radio" 
@@ -37,15 +37,34 @@ export const createElementFilterTrip = (filters) => {
 };
 
 
-export default class FilterTrip extends AbstractComponent {
+export default class Sort extends AbstractComponent {
   constructor(filters) {
     super();
     this._filters = filters;
+    this._currenSortType = `event`;
   }
 
   getTemplate() {
     return createElementFilterTrip(this._filters);
   }
+
+  setSortTypeChangeHandler(handler) {
+    this.getElement().addEventListener(`click`, (evt) => {
+      evt.preventDefault();
+
+      if (evt.target.tagName !== `A`) {
+        return;
+      }
+
+      const sortType = evt.target.dataset.sortType;
+
+      if (this._currenSortType === sortType) {
+        return;
+      }
+
+      this._currenSortType = sortType;
+
+      handler(this._currenSortType);
+    });
+  }
 }
-
-
