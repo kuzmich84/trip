@@ -1,4 +1,4 @@
-import {formatTime} from "../utils";
+import {formatTime} from "../utils/common";
 import AbstractComponent from "./abstract-components";
 
 const createPointRoute = (point) => {
