@@ -107,8 +107,8 @@ const createRouteEditTemplate = (point) => {
                         <div class="event__photos-container">
                           <div class="event__photos-tape">
                           <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
-                          <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
-                          <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
+                          <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()+1}" alt="Event photo">
+                          <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()+2}" alt="Event photo">
                           <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
                           <img class="event__photo" src="http://picsum.photos/300/200?r=${Math.random()}" alt="Event photo">
                           </div>
