@@ -36,6 +36,11 @@ export const createElementFilterTrip = (filters) => {
           </form>`);
 };
 
+export const SortType = {
+  EVENT: `event`,
+  TIME: `time`,
+  PRICE: `price`,
+};
 
 export default class Sort extends AbstractComponent {
   constructor(filters) {

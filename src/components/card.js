@@ -18,5 +18,5 @@ export default class SiteMenu extends AbstractComponent {
   }
   getTemplate() {
     return createElementCard(this._index);
-  }
+  }                                                                                                                                                                                                                                                    tututy5y6tt5yyty6
 }

@@ -3,7 +3,7 @@ import RouteEditComponent from "../components/route-edit";
 import {render, RenderPosition} from "../utils/render";
 import NoRoutesComponent from "../components/no-routes";
 import CardComponent from "../components/card";
-import Sort from "../components/sort";
+import Sort, {SortType} from "../components/sort";
 import {filterTripNames} from "../mock/filter";
 
 const COUNTCARD = 3;
@@ -38,7 +38,12 @@ const renderRoute = (point, currentDay) => {
   render(eventsList, routePointComponent.getElement(), RenderPosition.BEFOREEND);
 };
 
-
+const renderRoutes = (eventsList, points, currentDay) => {
+  points.forEach((point) => {
+    renderRoute(point, currentDay);
+  });
+  render(eventsList, currentDay, RenderPosition.BEFOREEND);
+};
 
 export default class TripController {
 
@@ -58,14 +63,11 @@ export default class TripController {
     new Array(COUNTCARD).fill(``).forEach(
       (item, index) => {
         const day = new CardComponent(index + 1).getElement();
-        points.forEach((point) => {
-          renderRoute(point, day);
-        });
-        render(container, day, RenderPosition.BEFOREEND);
+        renderRoutes(container, points, day);
       });
+
+
   }
-
-
 
   renderSort(sortContainer, names) {
     return render(sortContainer, new Sort(names).getElement(), RenderPosition.AFTERBEGIN);
